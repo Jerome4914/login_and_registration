@@ -1,1 +1,0 @@
-SECRET_KEY = '%+)*%i@00yi29wcx8y9x8z0+)6e0lzd0rzw^aqxx$5y$%=*j0s'
