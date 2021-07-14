@@ -43,7 +43,7 @@
                 </div>
                 {% if messages %}
                 {% for message in messages %}
-                    {% if 'email' in message.tags %}
+                    {% if 'register_email' in message.tags %}
                     <p style=color:red;>{{ message }}</p>
                     {% endif %}
                 {% endfor %}
@@ -54,7 +54,7 @@
                 </div>
                 {% if messages %}
                     {% for message in messages %}
-                        {% if 'password' in message.tags %}
+                        {% if 'register_password' in message.tags %}
                         <p style=color:red;>{{ message }}</p>
                         {% endif %}
                     {% endfor %}
@@ -63,6 +63,13 @@
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
+                {% if messages %}
+                {% for message in messages %}
+                    {% if 'register_password' in message.tags %}
+                    <p style=color:red;>{{ message }}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
                 <div class="form-group">
                     <label for="confirm_password">Confirm Password:</label>
                     <input type="password" name="confirm_password" id="confirm_password" class="form-control">
@@ -74,10 +81,24 @@
                 <h1>Login Here!</h1>
                 <form action="user/login" method="POST">
                     {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if 'login_email' in message.tags %}
+                            <p style=color:red;>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %} -->
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" class="form-control" name="email">
                     </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if 'login_password' in message.tags %}
+                            <p style=color:red;>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" name="password">
